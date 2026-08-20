@@ -19,6 +19,7 @@ if str(_REPO_ROOT) not in sys.path:
 def test_streamlit_app_part_a_and_b():
     """Run simulated Streamlit test verifying Part A animation controls and Part B training."""
     at = AppTest.from_file(_APP_PATH, default_timeout=30)
+    at.session_state._is_test_mode = True
     at.run()
     assert not at.exception, f"Streamlit app raised an exception on load: {at.exception}"
 
@@ -42,9 +43,11 @@ def test_streamlit_app_part_a_and_b():
     assert at.session_state.part_a_iteration_slider == 0
 
     # 3. Play and Pause buttons
-    at.session_state.part_a_iteration_slider = at.session_state.part_a_max_limit
     at.button(key="part_a_play").click().run()
     assert not at.exception, f"Error clicking Play button: {at.exception}"
+
+    at.button(key="part_a_pause").click().run()
+    assert not at.exception, f"Error clicking Pause button: {at.exception}"
     assert at.session_state.is_playing is False
 
     # 4. Surface selection: changing surface resets iteration slider to 0

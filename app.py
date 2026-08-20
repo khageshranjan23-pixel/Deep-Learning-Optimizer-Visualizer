@@ -377,10 +377,14 @@ with tabs[0]:
     # Automatic animation loop step
     if st.session_state.is_playing:
         if current_step < max_valid_step:
-            sleep_times = {"1x": 0.12, "2x": 0.07, "5x": 0.03, "Max": 0.01}
-            time.sleep(sleep_times.get(anim_speed, 0.05))
-            st.session_state.play_advance = step_increment
-            st.rerun()
+            if st.session_state.get("_is_test_mode", False):
+                st.session_state.is_playing = False
+                st.session_state.play_advance = 0
+            else:
+                sleep_times = {"1x": 0.12, "2x": 0.07, "5x": 0.03, "Max": 0.01}
+                time.sleep(sleep_times.get(anim_speed, 0.05))
+                st.session_state.play_advance = step_increment
+                st.rerun()
         else:
             st.session_state.is_playing = False
             st.session_state.play_advance = 0
