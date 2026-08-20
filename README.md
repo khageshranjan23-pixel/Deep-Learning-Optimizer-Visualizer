@@ -1,7 +1,7 @@
 # Optimizer Visualizer: From SGD to AdamW
 
 **Author:** Khagesh Ranjan  
-🔗 **Repository:** https://github.com/khageshranjan23-pixel/Deep-Learning-Optimizer-Visualizer
+**Repository:** https://github.com/khageshranjan23-pixel/Deep-Learning-Optimizer-Visualizer
 
 An interactive visual tool to explore how deep learning optimizers learn from first principles. Implemented completely from scratch in pure NumPy, featuring 2D loss surface simulations and real-time Multi-Layer Perceptron benchmarking.
 
