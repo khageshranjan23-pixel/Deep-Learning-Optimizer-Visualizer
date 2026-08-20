@@ -122,7 +122,7 @@ if st.session_state.is_playing and st.session_state.play_advance > 0:
 
 # Title & Header
 st.markdown("<div class='main-title'>Optimizer Visualizer</div>", unsafe_allow_html=True)
-st.markdown("<div class='sub-title'>Explore how seven optimization algorithms behave on mathematical loss surfaces and during neural-network training.</div>", unsafe_allow_html=True)
+st.markdown("<div class='sub-title'>Created by <b>Khagesh Ranjan</b> | Explore how seven optimization algorithms behave on mathematical loss surfaces and during neural-network training.</div>", unsafe_allow_html=True)
 
 
 # Main Tabs Navigation

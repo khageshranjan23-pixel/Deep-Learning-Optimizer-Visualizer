@@ -1,6 +1,7 @@
 # Optimizer Visualizer: From SGD to AdamW
 
-🔗 **Live Demo:** https://sg721642-deep-learning-optimizer-visualizer-app-mnapjy.streamlit.app/
+**Author:** Khagesh Ranjan  
+🔗 **Repository:** https://github.com/khageshranjan23-pixel/Deep-Learning-Optimizer-Visualizer
 
 An interactive visual tool to explore how deep learning optimizers learn from first principles. Implemented completely from scratch in pure NumPy, featuring 2D loss surface simulations and real-time Multi-Layer Perceptron benchmarking.
 
@@ -63,7 +64,7 @@ Deep-Learning-Optimizer-Visualizer/
 
 ### 1. Setup Environment
 ```bash
-git clone https://github.com/sg721642/Deep-Learning-Optimizer-Visualizer.git
+git clone https://github.com/khageshranjan23-pixel/Deep-Learning-Optimizer-Visualizer.git
 cd Deep-Learning-Optimizer-Visualizer
 pip install -r requirements.txt
 ```
