@@ -274,6 +274,7 @@ with tabs[0]:
         # Button callbacks
         def on_step_clicked():
             st.session_state.is_playing = False
+            st.session_state.play_advance = 0
             max_limit = st.session_state.get("part_a_max_limit", 300)
             st.session_state.part_a_iteration_slider = min(
                 st.session_state.get("part_a_iteration_slider", 0) + 1,
@@ -286,9 +287,17 @@ with tabs[0]:
             st.session_state.play_advance = 0
 
         def on_play_clicked():
+            max_limit = st.session_state.get("part_a_max_limit", 300)
+            if st.session_state.get("part_a_iteration_slider", 0) >= max_limit:
+                st.session_state.part_a_iteration_slider = 0
             st.session_state.is_playing = True
+            st.session_state.play_advance = 0
 
         def on_pause_clicked():
+            st.session_state.is_playing = False
+            st.session_state.play_advance = 0
+
+        def on_slider_changed():
             st.session_state.is_playing = False
             st.session_state.play_advance = 0
 
@@ -309,7 +318,8 @@ with tabs[0]:
             "Animation Speed",
             options=["1x", "2x", "5x", "Max"],
             value="2x",
-            key="part_a_anim_speed"
+            key="part_a_anim_speed",
+            on_change=on_slider_changed
         )
         step_increment = {"1x": 1, "2x": 2, "5x": 5, "Max": 15}[anim_speed]
 
@@ -319,7 +329,8 @@ with tabs[0]:
             min_value=0,
             max_value=max_valid_step,
             step=1,
-            key="part_a_iteration_slider"
+            key="part_a_iteration_slider",
+            on_change=on_slider_changed
         )
         current_step = st.session_state.part_a_iteration_slider
 
